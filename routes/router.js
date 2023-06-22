@@ -15,6 +15,14 @@ const { sendConfirmationEmail } = require("../mailer/mailer");
 
 const secret = "testJWTtoken";
 
+router.get("/test", async (req, res) => {
+  try {
+    return res.status(200).json("Welcome to backend!");
+  } catch (err) {
+    console.log(err);
+    return res.status(404).json(err);
+  }
+});
 router.get("/getproducts", async (req, res) => {
   try {
     const producstdata = await products.find();
